@@ -23,50 +23,18 @@
       width: 90%;
       max-width: 900px;
       padding: 30px;
+      text-align: center;
+      white-space: pre-wrap;
       border: 2px solid red;
       border-radius: 8px;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 2.4em;
-      text-shadow: 0 0 10px red;
-      animation: flicker 1.5s infinite alternate;
-    }
-
-    .main-title {
-      font-size: 2em;
-      margin-top: 30px;
-      text-shadow: 0 0 6px red;
-      font-weight: bold;
     }
 
     .typewriter {
       font-size: 1.2em;
-      margin-top: 30px;
       line-height: 1.8em;
-      white-space: pre-wrap;
       border-right: 2px solid red;
       overflow: hidden;
-    }
-
-    .tagline {
-      margin-top: 30px;
-      font-size: 1em;
-    }
-
-    .hashtag {
-      font-size: 1.4em;
-      font-weight: bold;
-      margin-top: 10px;
-      text-shadow: 0 0 10px red;
-      animation: flicker 1s infinite alternate;
-    }
-
-    .footer-line {
-      margin-top: 40px;
-      font-size: 1.2em;
-      text-shadow: 0 0 8px red;
+      animation: flicker 1.2s infinite alternate;
     }
 
     @keyframes flicker {
@@ -79,20 +47,16 @@
 </head>
 <body>
   <div class="container">
-    <h2>🔓FILE UNLOCKED🔓</h2>
-    <p class="main-title">MESSAGE TO MYSELF</p>
-    <p id="typeTarget" class="typewriter"></p>
-
-    <p class="tagline">
-      I.Y.K.Y.K<br>
-      IF YOU DON’T
-    </p>
-    <p class="hashtag">#FIND0UTT</p>
-    <p class="footer-line">MESSAGE TO MYSELF</p>
+    <div id="typewriter" class="typewriter"></div>
   </div>
 
   <script>
-    const message = `🎉CONGRATULATIONS🎉
+    const fullText = 
+`🔓 FILE UNLOCKED 🔓
+
+MESSAGE TO MYSELF
+
+🎉 CONGRATULATIONS 🎉
 
 KEEP GOIN NIGGA WHAT CAN'T YOU DO 😎🎉🏌🏿‍♂️🏋🏿👏🏿👏🏿😏
 
@@ -100,21 +64,28 @@ YOU GOT IT
 
 NOW LOCK THE FUCK IN
 
-KNOCK OUT 10 MORE PAGES`;
+KNOCK OUT 10 MORE PAGES
 
+I.Y.K.Y.K
+IF YOU DON’T
+
+#FIND0UTT
+
+MESSAGE TO MYSELF`;
+
+    const target = document.getElementById('typewriter');
     let i = 0;
     const speed = 35;
-    const target = document.getElementById("typeTarget");
 
-    function typeWriter() {
-      if (i < message.length) {
-        target.innerHTML += message.charAt(i);
+    function typeAll() {
+      if (i < fullText.length) {
+        target.innerHTML += fullText.charAt(i);
         i++;
-        setTimeout(typeWriter, speed);
+        setTimeout(typeAll, speed);
       }
     }
 
-    window.onload = typeWriter;
+    window.onload = typeAll;
   </script>
 </body>
 </html>
