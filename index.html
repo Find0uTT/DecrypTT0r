@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shirt Decryptor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: red;
+      font-family: 'Share Tech Mono', monospace;
+      overflow-x: hidden;
+    }
+
+    .matrix-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: url('https://cdn.pixabay.com/photo/2017/08/30/07/52/matrix-2695645_960_720.jpg') repeat;
+      background-size: cover;
+      opacity: 0.1;
+      animation: scrollBg 30s linear infinite;
+      filter: brightness(1.5) contrast(1.2);
+    }
+
+    @keyframes scrollBg {
+      from { background-position: 0 0; }
+      to { background-position: 0 1000px; }
+    }
+
+    .pulse-container {
+      position: fixed;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-family: 'Share Tech Mono', monospace;
+      max-width: 600px;
+      width: 100%;
+      padding: 0 20px;
+      z-index: 2;
+    }
+
+    .pulse-heading {
+      font-size: 2.4em;
+      text-shadow: 0 0 12px red;
+      animation: pulse 1.5s infinite;
+      margin-bottom: 10px;
+    }
+
+    .pulse-subline {
+      font-size: 2.4em;
+      text-shadow: 0 0 12px red;
+      animation: pulse 1.5s infinite;
+      margin-bottom: 40px;
+    }
+
+    .pulse-input {
+      padding: 14px;
+      font-size: 1.2em;
+      width: 80%;
+      max-width: 400px;
+      background: black;
+      border: 2px solid red;
+      color: red;
+      border-radius: 8px;
+      outline: none;
+      box-shadow: 0 0 12px red;
+      transition: transform 0.1s;
+    }
+
+    .pulse-button {
+      margin-top: 25px;
+      padding: 14px 28px;
+      font-size: 1em;
+      background: transparent;
+      color: red;
+      border: 2px solid red;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 12px red;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .pulse-button:hover {
+      background: red;
+      color: black;
+    }
+
+    @keyframes pulse {
+      0% { text-shadow: 0 0 6px red; }
+      50% { text-shadow: 0 0 14px red; }
+      100% { text-shadow: 0 0 6px red; }
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-10px); }
+      40% { transform: translateX(10px); }
+      60% { transform: translateX(-10px); }
+      80% { transform: translateX(10px); }
+      100% { transform: translateX(0); }
+    }
+
+    .shake {
+      animation: shake 0.4s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="matrix-bg"></div>
+
+  <div class="pulse-container">
+    <h1 class="pulse-heading">🔐 SHIRT DECRYPTOR</h1>
+    <h1 class="pulse-subline">TO</h1>
+    <input id="codeInput" class="pulse-input" type="text" placeholder="#Find0uTT">
+    <br>
+    <button class="pulse-button" onclick="goToFile()">UNLOCK</button>
+  </div>
+
+  <script>
+    const input = document.getElementById('codeInput');
+
+    function goToFile() {
+      const code = input.value.trim().toUpperCase();
+      const links = {
+        'MDW-8': 'https://yourstore.com/pages/man-dem-wicked-but',
+        'FLT-17': 'https://yourstore.com/pages/flight-wind',
+        'RR-4': 'https://yourstore.com/pages/relatables-realm-drop4',
+      };
+
+      if (links[code]) {
+        window.location.href = links[code];
+      } else {
+        input.classList.add('shake');
+        setTimeout(() => input.classList.remove('shake'), 400);
+      }
+    }
+
+    window.onload = () => {
+      input.focus();
+    };
+
+    input.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        goToFile();
+      }
+    });
+  </script>
+</body>
+</html>
