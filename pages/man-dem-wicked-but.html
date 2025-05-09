@@ -1,48 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>File Unlocked</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: red;
+      font-family: 'Share Tech Mono', monospace;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
+    .container {
+      width: 90%;
+      max-width: 900px;
+      padding: 30px;
+      border: 2px solid red;
+      border-radius: 8px;
+      text-align: center;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+    h2 {
+      font-size: 2.4em;
+      text-shadow: 0 0 10px red;
+      animation: flicker 1.5s infinite alternate;
+    }
 
-<div style="font-family: 'Share Tech Mono', monospace; background-color: black; color: red; padding: 30px; border: 2px solid red; border-radius: 8px; text-align: center; max-width: 850px; margin: auto;">
+    .main-title {
+      font-size: 2em;
+      margin-top: 30px;
+      text-shadow: 0 0 6px red;
+      font-weight: bold;
+    }
 
-  <h2 style="font-size: 2.4em; text-shadow: 0 0 10px red; animation: flicker 1.5s infinite alternate;">
-     🔓FILE UNLOCKED🔓
-  </h2>
+    .body-text {
+      font-size: 1.2em;
+      margin-top: 30px;
+      line-height: 1.8em;
+    }
 
-  <p style="font-size: 2em; margin-top: 30px; text-shadow: 0 0 6px red; font-weight: bold;">
-   MAN DEM WICKED BuT... We WICKEDA DAN DEM
-  </p>
+    .tagline {
+      margin-top: 30px;
+      font-size: 1em;
+    }
 
-  <p style="font-size: 1.2em; margin-top: 30px; line-height: 1.8em;">
-    This one’s for the ones who know life hits hard,<br>
-    <br>
-    but you hit back harder.<br>
-    <br>
-    You roll out of bed with pressure on your chest,<br>
-    still get up and chase what’s yours.<br>
-    <br>
-    Light one, lock in, then go get it.
-  </p>
+    .hashtag {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-top: 10px;
+      text-shadow: 0 0 10px red;
+      animation: flicker 1s infinite alternate;
+    }
 
-  <p style="margin-top: 30px; font-size: 1em;">
-    I.Y.K.Y.K<br>
-    IF YOU DON’T
-  </p>
+    .footer-line {
+      margin-top: 40px;
+      font-size: 1.2em;
+      text-shadow: 0 0 8px red;
+    }
 
-  <p style="font-size: 1.4em; font-weight: bold; margin-top: 10px; text-shadow: 0 0 10px red; animation: flicker 1s infinite alternate;">
-    #Find0uTT
-  </p>
+    @keyframes flicker {
+      0%   { opacity: 1; }
+      40%  { opacity: 0.4; }
+      70%  { opacity: 0.9; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🔓FILE UNLOCKED🔓</h2>
 
-  <p style="margin-top: 40px; font-size: 1.2em; text-shadow: 0 0 8px red;">
-    MAN DEM WICKED BuT..... We WICKEDA DAN DEM
-  </p>
+    <p class="main-title">MAN DEM WICKED BuT... We WICKEDA DAN DEM</p>
 
-</div>
+    <p class="body-text">
+      This one’s for the ones who know life hits hard,<br><br>
+      but you hit back harder.<br><br>
+      You roll out of bed with pressure on your chest,<br>
+      still get up and chase what’s yours.<br><br>
+      Light one, lock in, then go get it.
+    </p>
 
-<style>
-@keyframes flicker {
-  0%   { opacity: 1; }
-  40%  { opacity: 0.4; }
-  70%  { opacity: 0.9; }
-  100% { opacity: 1; }
-}
-</style>
+    <p class="tagline">
+      I.Y.K.Y.K<br>
+      IF YOU DON’T
+    </p>
+
+    <p class="hashtag">#Find0uTT</p>
+
+    <p class="footer-line">
+      MAN DEM WICKED BuT..... We WICKEDA DAN DEM
+    </p>
+  </div>
+</body>
+</html>
