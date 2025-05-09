@@ -24,17 +24,37 @@
       max-width: 900px;
       padding: 30px;
       text-align: center;
-      white-space: pre-wrap;
       border: 2px solid red;
       border-radius: 8px;
     }
 
-    .typewriter {
+    .line {
+      opacity: 0;
+      white-space: pre-wrap;
+    }
+
+    .line.visible {
+      opacity: 1;
+    }
+
+    .large {
+      font-size: 2.2em;
+      text-shadow: 0 0 10px red;
+    }
+
+    .medium {
+      font-size: 1.6em;
+      text-shadow: 0 0 6px red;
+    }
+
+    .small {
       font-size: 1.2em;
-      line-height: 1.8em;
-      border-right: 2px solid red;
-      overflow: hidden;
-      animation: flicker 1.2s infinite alternate;
+    }
+
+    .hashtag {
+      font-size: 1.4em;
+      font-weight: bold;
+      text-shadow: 0 0 10px red;
     }
 
     @keyframes flicker {
@@ -46,46 +66,53 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div id="typewriter" class="typewriter"></div>
-  </div>
+  <div class="container" id="typewriter"></div>
 
   <script>
-    const fullText = 
-`🔓 FILE UNLOCKED 🔓
+    const lines = [
+      { text: "🔓 FILE UNLOCKED 🔓", class: "large" },
+      { text: "MESSAGE TO MYSELF", class: "large" },
+      { text: "🎉 CONGRATULATIONS 🎉", class: "medium" },
+      { text: "KEEP GOIN NIGGA WHAT CAN'T YOU DO 😎🎉🏌🏿‍♂️🏋🏿👏🏿👏🏿😏", class: "medium" },
+      { text: "YOU GOT IT", class: "small" },
+      { text: "NOW LOCK THE FUCK IN", class: "small" },
+      { text: "KNOCK OUT 10 MORE PAGES", class: "small" },
+      { text: "I.Y.K.Y.K", class: "small" },
+      { text: "IF YOU DON’T", class: "small" },
+      { text: "#FIND0UTT", class: "hashtag" },
+      { text: "MESSAGE TO MYSELF", class: "medium" }
+    ];
 
-MESSAGE TO MYSELF
+    const container = document.getElementById('typewriter');
+    let lineIndex = 0;
 
-🎉 CONGRATULATIONS 🎉
+    function typeLine() {
+      if (lineIndex < lines.length) {
+        const line = document.createElement('div');
+        line.classList.add('line', lines[lineIndex].class);
+        container.appendChild(line);
 
-KEEP GOIN NIGGA WHAT CAN'T YOU DO 😎🎉🏌🏿‍♂️🏋🏿👏🏿👏🏿😏
+        let charIndex = 0;
+        const text = lines[lineIndex].text;
+        const speed = 30;
 
-YOU GOT IT
+        function typeChar() {
+          if (charIndex < text.length) {
+            line.innerHTML += text.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeChar, speed);
+          } else {
+            line.classList.add('visible');
+            lineIndex++;
+            setTimeout(typeLine, 400); // pause before next line
+          }
+        }
 
-NOW LOCK THE FUCK IN
-
-KNOCK OUT 10 MORE PAGES
-
-I.Y.K.Y.K
-IF YOU DON’T
-
-#FIND0UTT
-
-MESSAGE TO MYSELF`;
-
-    const target = document.getElementById('typewriter');
-    let i = 0;
-    const speed = 35;
-
-    function typeAll() {
-      if (i < fullText.length) {
-        target.innerHTML += fullText.charAt(i);
-        i++;
-        setTimeout(typeAll, speed);
+        typeChar();
       }
     }
 
-    window.onload = typeAll;
+    window.onload = typeLine;
   </script>
 </body>
 </html>
