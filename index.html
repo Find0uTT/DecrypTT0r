@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Shirt Decryptor</title>
+  <title>Classified Access</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
@@ -48,14 +48,17 @@
       z-index: 2;
     }
 
-    .pulse-heading {
-      font-size: 2.4em;
-      text-shadow: 0 0 12px red;
-      animation: pulse 1.5s infinite;
-      margin-bottom: 10px;
-    }
-
     .pulse-subline {
+  font-size: 1.4em;
+  margin-top: -25px;
+  margin-bottom: 30px;
+  text-shadow: 0 0 8px red;
+  color: red;
+  animation: pulse 1.5s infinite;
+}
+
+
+    .pulse-heading {
       font-size: 2.4em;
       text-shadow: 0 0 12px red;
       animation: pulse 1.5s infinite;
@@ -119,8 +122,10 @@
   <div class="matrix-bg"></div>
 
   <div class="pulse-container">
-    <h1 class="pulse-heading">🔐 SHIRT DECRYPTOR</h1>
-    <h1 class="pulse-subline">TO</h1>
+    <h1 class="pulse-heading">🔐DECRYPT0R🔐</h1>
+<h1 class="pulse-heading">TO</h1>
+
+
     <input id="codeInput" class="pulse-input" type="text" placeholder="#Find0uTT">
     <br>
     <button class="pulse-button" onclick="goToFile()">UNLOCK</button>
@@ -132,9 +137,10 @@
     function goToFile() {
       const code = input.value.trim().toUpperCase();
       const links = {
-        'MDW-8': 'https://yourstore.com/pages/man-dem-wicked-but',
-        'FLT-17': 'https://yourstore.com/pages/flight-wind',
-        'RR-4': 'https://yourstore.com/pages/relatables-realm-drop4',
+        'MDW-8': '/pages/man-dem-wicked-but',
+        'FLT-17': '/pages/flight-wind',
+        'RR-4': '/pages/relatables-realm-drop4',
+        // Add more
       };
 
       if (links[code]) {
@@ -145,10 +151,12 @@
       }
     }
 
+    // Autofocus on load
     window.onload = () => {
       input.focus();
     };
 
+    // Enter key support
     input.addEventListener('keydown', function(event) {
       if (event.key === 'Enter') {
         goToFile();
