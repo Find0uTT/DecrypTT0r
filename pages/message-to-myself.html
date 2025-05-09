@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MESSAGE TO MYSELF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: red;
+      font-family: 'Share Tech Mono', monospace;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      padding: 30px;
+      border: 2px solid red;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2.4em;
+      text-shadow: 0 0 10px red;
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    .main-title {
+      font-size: 2em;
+      margin-top: 30px;
+      text-shadow: 0 0 6px red;
+      font-weight: bold;
+    }
+
+    .typewriter {
+      font-size: 1.2em;
+      margin-top: 30px;
+      line-height: 1.8em;
+      white-space: pre-wrap;
+      border-right: 2px solid red;
+      overflow: hidden;
+    }
+
+    .tagline {
+      margin-top: 30px;
+      font-size: 1em;
+    }
+
+    .hashtag {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-top: 10px;
+      text-shadow: 0 0 10px red;
+      animation: flicker 1s infinite alternate;
+    }
+
+    .footer-line {
+      margin-top: 40px;
+      font-size: 1.2em;
+      text-shadow: 0 0 8px red;
+    }
+
+    @keyframes flicker {
+      0%   { opacity: 1; }
+      40%  { opacity: 0.4; }
+      70%  { opacity: 0.9; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🔓FILE UNLOCKED🔓</h2>
+    <p class="main-title">MESSAGE TO MYSELF</p>
+    <p id="typeTarget" class="typewriter"></p>
+
+    <p class="tagline">
+      I.Y.K.Y.K<br>
+      IF YOU DON’T
+    </p>
+    <p class="hashtag">#FIND0UTT</p>
+    <p class="footer-line">MESSAGE TO MYSELF</p>
+  </div>
+
+  <script>
+    const message = `🎉CONGRATULATIONS🎉
+
+KEEP GOIN NIGGA WHAT CAN'T YOU DO 😎🎉🏌🏿‍♂️🏋🏿👏🏿👏🏿😏
+
+YOU GOT IT
+
+NOW LOCK THE FUCK IN
+
+KNOCK OUT 10 MORE PAGES`;
+
+    let i = 0;
+    const speed = 35;
+    const target = document.getElementById("typeTarget");
+
+    function typeWriter() {
+      if (i < message.length) {
+        target.innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>
