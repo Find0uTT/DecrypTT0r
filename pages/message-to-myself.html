@@ -26,15 +26,7 @@
       text-align: center;
       border: 2px solid red;
       border-radius: 8px;
-    }
-
-    .line {
-      opacity: 0;
       white-space: pre-wrap;
-    }
-
-    .line.visible {
-      opacity: 1;
     }
 
     .large {
@@ -57,11 +49,14 @@
       text-shadow: 0 0 10px red;
     }
 
-    @keyframes flicker {
-      0%   { opacity: 1; }
-      40%  { opacity: 0.4; }
-      70%  { opacity: 0.9; }
-      100% { opacity: 1; }
+    .cursor {
+      border-right: 2px solid red;
+      animation: blink 0.7s step-end infinite;
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: red; }
     }
   </style>
 </head>
@@ -87,29 +82,28 @@
     let lineIndex = 0;
 
     function typeLine() {
-      if (lineIndex < lines.length) {
-        const line = document.createElement('div');
-        line.classList.add('line', lines[lineIndex].class);
-        container.appendChild(line);
+      if (lineIndex >= lines.length) return;
 
-        let charIndex = 0;
-        const text = lines[lineIndex].text;
-        const speed = 30;
+      const lineData = lines[lineIndex];
+      const lineElem = document.createElement('div');
+      lineElem.className = lineData.class + ' cursor';
+      container.appendChild(lineElem);
 
-        function typeChar() {
-          if (charIndex < text.length) {
-            line.innerHTML += text.charAt(charIndex);
-            charIndex++;
-            setTimeout(typeChar, speed);
-          } else {
-            line.classList.add('visible');
-            lineIndex++;
-            setTimeout(typeLine, 400); // pause before next line
-          }
+      let charIndex = 0;
+
+      function typeChar() {
+        if (charIndex < lineData.text.length) {
+          lineElem.textContent += lineData.text.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeChar, 35);
+        } else {
+          lineElem.classList.remove('cursor');
+          lineIndex++;
+          setTimeout(typeLine, 300); // pause before next line
         }
-
-        typeChar();
       }
+
+      typeChar();
     }
 
     window.onload = typeLine;
