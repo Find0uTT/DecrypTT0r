@@ -12,16 +12,14 @@
       background-color: black;
       color: red;
       font-family: 'Share Tech Mono', monospace;
-      height: 100%;
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      min-height: 100%;
+      overflow-y: auto;
     }
 
     .container {
-      width: 90%;
       max-width: 900px;
+      margin: 40px auto;
       padding: 30px;
       text-align: center;
       border: 2px solid red;
@@ -66,9 +64,9 @@
   <script>
     const lines = [
       { text: "🔓 FILE UNLOCKED 🔓", class: "large" },
-      { text: "FORMED. AIMED. FIRED. BUT........MISSED", class: "large" },
+      { text: "FORMED AIMED FIRED BUT........MISSED", class: "large" },
       { text: "FORMED BUT DIDN’T WORK", class: "medium" },
-      { text: "I’M STILL HERE AND #BLESSED 😎", class: "medium" },
+      { text: "YOU'RE STILL HERE AND #BLESSED 😎", class: "medium" },
       { text: "FORMED. AIMED. FIRED. MISSED", class: "medium" },
       { text: "BUT IT DIDN’T HIT.", class: "small" },
       { text: "THE LIES? DENIED.", class: "small" },
@@ -79,7 +77,7 @@
       { text: "THIS IS COVER.", class: "small" },
       { text: "THIS IS", class: "small" },
       { text: "I.Y.K.Y.K", class: "small" },
-      { text: "IF YOU DON’T", class: "small" },
+      { text: "IF YOU DON'T", class: "small" },
       { text: "#FIND0UTT", class: "hashtag" },
       { text: "ISAIAH 54:17", class: "medium" },
       { text: "\"NO WEAPON FORMED AGAINST YOU SHALL PROSPER,", class: "small" },
@@ -111,7 +109,7 @@
         } else {
           lineElem.classList.remove('cursor');
           lineIndex++;
-          setTimeout(typeLine, 300); // slight pause between lines
+          setTimeout(typeLine, 300);
         }
       }
 
