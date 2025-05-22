@@ -78,15 +78,13 @@
 <body>
   <div class="container" id="typewriter"></div>
 
-  <!-- YouTube Embed (Main Song Link) -->
   <iframe src="https://www.youtube.com/embed/cMIFkz7ct9U" allowfullscreen></iframe>
 
-  <!-- Optional secondary link -->
   <a class="yt-link" href="https://youtu.be/y10YZoHFnm4?si=n4zg_dIy7fPlWaE2" target="_blank">Watch Alternate Clip ↗️</a>
 
   <script>
     const lines = [
-      { text: "🔓FILE UNLOCKED🔓", class: "large" },
+      { text: "&#128275; FILE UNLOCKED &#128275;", class: "large" },
       { text: "LAST BLOODCLA* MAN", class: "large" },
       { text: "\"WE A DI LAST MAN STANDING.", class: "medium" },
       { text: "RIFLE SHOT MOVE DI GULLY BANKING.\"", class: "medium" },
@@ -114,7 +112,7 @@
 
       function typeChar() {
         if (charIndex < lineData.text.length) {
-          lineElem.textContent += lineData.text.charAt(charIndex);
+          lineElem.innerHTML += lineData.text.charAt(charIndex);
           charIndex++;
           setTimeout(typeChar, 35);
         } else {
