@@ -10,41 +10,38 @@
       margin: 0;
       padding: 0;
       background-color: black;
-      color: red;
+      color: #ff0000;
       font-family: 'Share Tech Mono', monospace;
       width: 100%;
       min-height: 100%;
       overflow-y: auto;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
       text-align: center;
-      border: 2px solid red;
-      border-radius: 8px;
-      white-space: pre-wrap;
     }
 
-    .large {
-      font-size: 2.2em;
-      text-shadow: 0 0 10px red;
+    #unlockMessage {
+      display: none;
+      margin-top: 30px;
+      text-shadow: 0 0 8px #ff0000;
     }
 
-    .medium {
-      font-size: 1.6em;
-      text-shadow: 0 0 6px red;
+    #unlockMessage div {
+      margin-bottom: 10px;
     }
 
-    .small {
-      font-size: 1.2em;
+    #unlockMessage .gateway-title {
+      font-size: 28px;
     }
 
-    .hashtag {
-      font-size: 1.4em;
-      font-weight: bold;
-      text-shadow: 0 0 10px red;
+    #unlockMessage .gateway-line {
+      font-size: 20px;
+    }
+
+    #decryptedMessage {
+      display: none;
+      font-size: 18px;
+      text-shadow: 0 0 8px #ff0000;
+      max-width: 90%;
+      margin: 20px auto 0;
     }
 
     iframe {
@@ -63,69 +60,77 @@
       color: red;
       text-decoration: underline;
     }
-
-    @keyframes blink {
-      from, to { border-color: transparent; }
-      50% { border-color: red; }
-    }
-
-    .cursor {
-      border-right: 2px solid red;
-      animation: blink 0.7s step-end infinite;
-    }
   </style>
 </head>
 <body>
-  <div class="container" id="typewriter"></div>
 
+  <!-- Unlock Gateway Message -->
+  <div id="unlockMessage">
+    <div class="gateway-title">⛩️ G8WAY 0PENED ⛩️</div>
+    <div class="gateway-line">You’ve $TTepped TThrough.</div>
+    <div class="gateway-line">Here’s what’s 0n the 0TTher $ide.</div>
+  </div>
+
+  <!-- Animated Decrypted Message -->
+  <div id="decryptedMessage"></div>
+
+  <!-- Video -->
   <iframe src="https://www.youtube.com/embed/cMIFkz7ct9U" allowfullscreen></iframe>
 
   <a class="yt-link" href="https://youtu.be/y10YZoHFnm4?si=n4zg_dIy7fPlWaE2" target="_blank">Watch Alternate Clip ↗️</a>
 
   <script>
-    const lines = [
-      { text: "🔓 FILE UNLOCKED 🔓", class: "large" },
-      { text: "LAST BLOODCLA* MAN", class: "large" },
-      { text: "\"WE A DI LAST MAN STANDING.", class: "medium" },
-      { text: "RIFLE SHOT MOVE DI GULLY BANKING.\"", class: "medium" },
-      { text: "THIS LINE ISN’T JUST A LYRIC", class: "small" },
-      { text: "IT’S A DECLARATION OF RESILIENCE AND DOMINANCE.", class: "small" },
-      { text: "WORN BY THOSE WHO UNDERSTAND THE WEIGHT", class: "small" },
-      { text: "OF STANDING TALL AMIDST ADVERSITY.", class: "small" },
-      { text: "I.Y.K.Y.K", class: "small" },
-      { text: "IF YOU DON’T", class: "small" },
-      { text: "#FIND0UTT", class: "hashtag" }
+    const linesToReveal = [
+      "LAST BLOODCLA* MAN",
+      "\"WE A DI LAST MAN STANDING.",
+      "RIFLE SHOT MOVE DI GULLY BANKING.\"",
+      "THIS LINE ISN’T JUST A LYRIC",
+      "IT’S A DECLARATION OF RESILIENCE AND DOMINANCE.",
+      "WORN BY THOSE WHO UNDERSTAND THE WEIGHT",
+      "OF STANDING TALL AMIDST ADVERSITY.",
+      "I.Y.K.Y.K",
+      "IF YOU DON’T",
+      "#FIND0UTT"
     ];
 
-    const container = document.getElementById('typewriter');
-    let lineIndex = 0;
+    function showUnlockMessageThenType(messageLines) {
+      const unlockDiv = document.getElementById('unlockMessage');
+      const messageDiv = document.getElementById('decryptedMessage');
+      
+      unlockDiv.style.display = 'block';
 
-    function typeLine() {
-      if (lineIndex >= lines.length) return;
+      setTimeout(() => {
+        messageDiv.style.display = 'block';
+        typeMessage(messageLines, messageDiv);
+      }, 2500);
+    }
 
-      const lineData = lines[lineIndex];
-      const lineElem = document.createElement('div');
-      lineElem.className = lineData.class + ' cursor';
-      container.appendChild(lineElem);
-
+    function typeMessage(lines, container, delay = 30) {
+      let lineIndex = 0;
       let charIndex = 0;
 
-      function typeChar() {
-        if (charIndex < lineData.text.length) {
-          lineElem.innerHTML += lineData.text.charAt(charIndex);
+      function typeNextChar() {
+        if (lineIndex >= lines.length) return;
+
+        if (charIndex < lines[lineIndex].length) {
+          container.innerHTML += lines[lineIndex][charIndex];
           charIndex++;
-          setTimeout(typeChar, 35);
+          setTimeout(typeNextChar, delay);
         } else {
-          lineElem.classList.remove('cursor');
+          container.innerHTML += '<br>';
           lineIndex++;
-          setTimeout(typeLine, 300);
+          charIndex = 0;
+          setTimeout(typeNextChar, delay * 2);
         }
       }
 
-      typeChar();
+      typeNextChar();
     }
 
-    window.onload = typeLine;
+    window.onload = () => {
+      showUnlockMessageThenType(linesToReveal);
+    };
   </script>
+
 </body>
 </html>
