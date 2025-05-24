@@ -74,29 +74,24 @@
   <!-- Animated Decrypted Message -->
   <div id="decryptedMessage"></div>
 
-  <!-- Video -->
-<iframe 
-  src="https://www.youtube.com/embed/cMIFkz7ct9U?start=14" 
-  allowfullscreen>
-</iframe>
+  <!-- Video embed, starts at 14s -->
+  <iframe src="https://www.youtube.com/embed/cMIFkz7ct9U?start=14" allowfullscreen></iframe>
 
-  <a class="yt-link" href="https://www.youtube.com/embed/cMIFkz7ct9U?start=14" target="_blank">Watch Alternate Clip ↗️</a>
+  <a class="yt-link" href="https://youtu.be/y10YZoHFnm4?si=n4zg_dIy7fPlWaE2" target="_blank">Watch Alternate Clip ↗️</a>
 
   <script>
-  const linesToReveal = [
-  "<span style='display: block; font-size: 2.6em; text-shadow: 0 0 12px red; margin-bottom: 10px;'>LAST BLOODCLA* MAN</span>",
-  "\"WE A DI LAST MAN STANDING.",
-  "RIFLE SHOT MOVE DI GULLY BANKING.\"",
-  "THIS LINE ISN’T JUST A LYRIC",
-  "IT’S A DECLARATION OF RESILIENCE AND DOMINANCE.",
-  "WORN BY THOSE WHO UNDERSTAND THE WEIGHT",
-  "OF STANDING TALL AMIDST ADVERSITY.",
-  "I.Y.K.Y.K",
-  "IF YOU DON’T",
-  "#FIND0UTT"
-];
-
-
+    const linesToReveal = [
+      `<span style="display: inline-block; font-size: 2.6em; text-shadow: 0 0 12px red; margin-bottom: 10px;">LAST BLOODCLA* MAN</span>`,
+      `"WE A DI LAST MAN STANDING.`,
+      `RIFLE SHOT MOVE DI GULLY BANKING."`,
+      `THIS LINE ISN’T JUST A LYRIC`,
+      `IT’S A DECLARATION OF RESILIENCE AND DOMINANCE.`,
+      `WORN BY THOSE WHO UNDERSTAND THE WEIGHT`,
+      `OF STANDING TALL AMIDST ADVERSITY.`,
+      `I.Y.K.Y.K`,
+      `IF YOU DON’T`,
+      `#FIND0UTT`
+    ];
 
     function showUnlockMessageThenType(messageLines) {
       const unlockDiv = document.getElementById('unlockMessage');
@@ -117,9 +112,13 @@
       function typeNextChar() {
         if (lineIndex >= lines.length) return;
 
-        if (charIndex < lines[lineIndex].length) {
-          container.innerHTML += lines[lineIndex][charIndex];
-          charIndex++;
+        const currentLine = lines[lineIndex];
+        const currentChar = currentLine.charAt(charIndex);
+
+        container.innerHTML += currentChar;
+        charIndex++;
+
+        if (charIndex < currentLine.length) {
           setTimeout(typeNextChar, delay);
         } else {
           container.innerHTML += '<br>';
