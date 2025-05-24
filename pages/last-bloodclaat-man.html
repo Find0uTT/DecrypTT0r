@@ -44,6 +44,15 @@
       margin: 20px auto 0;
     }
 
+    #footerNote {
+      display: none;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1em;
+      color: red;
+      text-shadow: 0 0 8px red;
+    }
+
     iframe {
       margin-top: 30px;
       width: 100%;
@@ -64,98 +73,110 @@
 </head>
 <body>
 
-  <!-- Unlock Gateway Message -->
+  <!-- Gateway Message -->
   <div id="unlockMessage">
     <div class="gateway-title">⛩️ G8WAY 0PENED ⛩️</div>
     <div class="gateway-line">You’ve $TTepped TThrough.</div>
     <div class="gateway-line">Here’s what’s 0n the 0TTher $ide.</div>
   </div>
 
-  <!-- Animated Decrypted Message -->
+  <!-- Typing Message -->
   <div id="decryptedMessage"></div>
 
-  <!-- Video embed, starts at 14s -->
-  <iframe src="https://www.youtube.com/embed/cMIFkz7ct9U?start=14" allowfullscreen></iframe>
+  <!-- Final Footer Message -->
+  <div id="footerNote">
+    This shirt is from <strong>#TSC – The Soundtrack Collection</strong><br><br>
+    If you like the shirt, the <strong>#C0DE</strong> is your password.<br>
+    Search it in the shop. It’s never closed... but it’s <br><br>
+    <strong>I.Y.K.Y.K</strong><br>
+    <strong>IF YOU DON’T</strong><br>
+    <span style="font-size: 1.2em; font-weight: bold; text-shadow: 0 0 12px red;">#Find0uTT</span>
+  </div>
 
+  <!-- Video Embed -->
+  <iframe src="https://www.youtube.com/embed/cMIFkz7ct9U?start=14" allowfullscreen></iframe>
   <a class="yt-link" href="https://youtu.be/y10YZoHFnm4?si=n4zg_dIy7fPlWaE2" target="_blank">Watch Alternate Clip ↗️</a>
 
- <script>
-  const linesToReveal = [
-    {
-      html: `<span style="font-size: 2.6em; text-shadow: 0 0 12px red; display: block; margin-bottom: 10px;"></span>`,
-      text: "LAST BLOODCLA* MAN"
-    },
-    { text: `"WE A DI LAST MAN STANDING.` },
-    { text: `RIFLE SHOT MOVE DI GULLY BANKING."` },
-    { text: `THIS LINE ISN’T JUST A LYRIC` },
-    { text: `IT’S A DECLARATION OF RESILIENCE AND DOMINANCE.` },
-    { text: `WORN BY THOSE WHO UNDERSTAND THE WEIGHT` },
-    { text: `OF STANDING TALL AMIDST ADVERSITY.` },
-    { text: `I.Y.K.Y.K` },
-    { text: `IF YOU DON’T` },
-    { text: `#FIND0UTT` }
-  ];
+  <script>
+    const linesToReveal = [
+      {
+        html: `<span style="font-size: 2.6em; text-shadow: 0 0 12px red; display: block; margin-bottom: 10px;"></span>`,
+        text: "LAST BLOODCLA* MAN"
+      },
+      { text: `"WE A DI LAST MAN STANDING.` },
+      { text: `RIFLE SHOT MOVE DI GULLY BANKING."` },
+      { text: `THIS LINE ISN’T JUST A LYRIC` },
+      { text: `IT’S A DECLARATION OF RESILIENCE AND DOMINANCE.` },
+      { text: `WORN BY THOSE WHO UNDERSTAND THE WEIGHT` },
+      { text: `OF STANDING TALL AMIDST ADVERSITY.` },
+      { text: `I.Y.K.Y.K` },
+      { text: `IF YOU DON’T` },
+      { text: `#FIND0UTT` }
+    ];
 
-  function showUnlockMessageThenType(lines) {
-    const unlockDiv = document.getElementById('unlockMessage');
-    const container = document.getElementById('decryptedMessage');
+    function showUnlockMessageThenType(lines) {
+      const unlockDiv = document.getElementById('unlockMessage');
+      const container = document.getElementById('decryptedMessage');
 
-    unlockDiv.style.display = 'block';
+      unlockDiv.style.display = 'block';
 
-    setTimeout(() => {
-      container.style.display = 'block';
-      typeLines(lines, container);
-    }, 2500);
-  }
-
-  function typeLines(lines, container, delay = 30) {
-    let i = 0;
-
-    function typeNextLine() {
-      if (i >= lines.length) return;
-
-      const line = lines[i];
-      let wrapper;
-
-      // Use styled HTML line if provided
-      if (line.html) {
-        wrapper = document.createElement('div');
-        wrapper.innerHTML = line.html;
-        const span = wrapper.querySelector('span');
-        container.appendChild(span);
-        typeTextInto(span, line.text, () => {
-          i++;
-          setTimeout(typeNextLine, delay * 3);
-        }, delay);
-      } else {
-        // Plain line
-        wrapper = document.createElement('div');
-        container.appendChild(wrapper);
-        typeTextInto(wrapper, line.text, () => {
-          i++;
-          setTimeout(typeNextLine, delay * 3);
-        }, delay);
-      }
+      setTimeout(() => {
+        container.style.display = 'block';
+        typeLines(lines, container);
+      }, 2500);
     }
 
-    function typeTextInto(elem, text, done, speed) {
-      let j = 0;
-      function typeChar() {
-        if (j < text.length) {
-          elem.innerHTML += text[j++];
-          setTimeout(typeChar, speed);
+    function typeLines(lines, container, delay = 30) {
+      let i = 0;
+
+      function typeNextLine() {
+        if (i >= lines.length) {
+          document.getElementById('footerNote').style.display = 'block';
+          return;
+        }
+
+        const line = lines[i];
+        let wrapper;
+
+        if (line.html) {
+          wrapper = document.createElement('div');
+          wrapper.innerHTML = line.html;
+          const span = wrapper.querySelector('span');
+          container.appendChild(span);
+          typeTextInto(span, line.text, () => {
+            i++;
+            setTimeout(typeNextLine, delay * 3);
+          }, delay);
         } else {
-          done();
+          wrapper = document.createElement('div');
+          container.appendChild(wrapper);
+          typeTextInto(wrapper, line.text, () => {
+            i++;
+            setTimeout(typeNextLine, delay * 3);
+          }, delay);
         }
       }
-      typeChar();
+
+      function typeTextInto(elem, text, done, speed) {
+        let j = 0;
+        function typeChar() {
+          if (j < text.length) {
+            elem.innerHTML += text[j++];
+            setTimeout(typeChar, speed);
+          } else {
+            done();
+          }
+        }
+        typeChar();
+      }
+
+      typeNextLine();
     }
 
-    typeNextLine();
-  }
+    window.onload = () => {
+      showUnlockMessageThenType(linesToReveal);
+    };
+  </script>
 
-  window.onload = () => {
-    showUnlockMessageThenType(linesToReveal);
-  };
-</script>
-
+</body>
+</html>
