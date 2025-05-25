@@ -71,16 +71,21 @@
 
     @keyframes pulse {
       0%   { text-shadow: 0 0 6px red; }
-      50%  { text-shadow: 0 0 14px red; }
+      50%  { text-shadow: 0 0 16px red, 0 0 32px red; }
       100% { text-shadow: 0 0 6px red; }
+    }
+
+    .glow-T {
+      color: red;
+      text-shadow: 0 0 16px red, 0 0 32px red;
+      font-weight: bold;
+      animation: pulse 1.4s infinite;
     }
 
     .pulse-link {
       display: inline-block;
       font-size: 1.2em;
       font-weight: bold;
-      text-shadow: 0 0 12px red;
-      animation: pulse 1.2s infinite;
       color: red;
       text-decoration: none;
       margin-top: 10px;
@@ -112,7 +117,9 @@
     Search it in the shop. It’s never closed... but it’s <br><br>
     <strong>I.Y.K.Y.K</strong><br>
     <strong>IF YOU DON’T</strong><br>
-    <a href="https://find0utt.github.io" target="_blank" class="pulse-link">#Find0uTT</a>
+    <a href="https://10se8q-se.myshopify.com/" target="_blank" class="pulse-link">
+      #Find0u<span class="glow-T">T</span><span class="glow-T">T</span>
+    </a>
   </div>
 
   <script>
