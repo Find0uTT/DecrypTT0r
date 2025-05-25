@@ -69,19 +69,6 @@
       text-shadow: 0 0 8px red;
     }
 
-    @keyframes pulse {
-      0%   { text-shadow: 0 0 6px red; }
-      50%  { text-shadow: 0 0 16px red, 0 0 32px red; }
-      100% { text-shadow: 0 0 6px red; }
-    }
-
-    .glow-T {
-      color: red;
-      text-shadow: 0 0 16px red, 0 0 32px red;
-      font-weight: bold;
-      animation: pulse 1.4s infinite;
-    }
-
     .pulse-link {
       display: inline-block;
       font-size: 1.2em;
@@ -89,6 +76,30 @@
       color: red;
       text-decoration: none;
       margin-top: 10px;
+    }
+
+    @keyframes powerTT {
+      0%, 100% {
+        transform: scale(1);
+        color: red;
+        text-shadow: 0 0 8px red;
+      }
+      33% {
+        transform: scale(1.1);
+        color: #ff1a1a;
+        text-shadow: 0 0 12px red, 0 0 24px red;
+      }
+      66% {
+        transform: scale(1.2);
+        color: #ff4d4d;
+        text-shadow: 0 0 16px red, 0 0 36px red;
+      }
+    }
+
+    .glow-T {
+      display: inline-block;
+      font-weight: bold;
+      animation: powerTT 1.5s ease-in-out infinite;
     }
   </style>
 </head>
@@ -117,7 +128,7 @@
     Search it in the shop. It’s never closed... but it’s <br><br>
     <strong>I.Y.K.Y.K</strong><br>
     <strong>IF YOU DON’T</strong><br>
-    <a href="https://10se8q-se.myshopify.com/" target="_blank" class="pulse-link">
+    <a href="https://10se8q-se.myshopify.com/"_blank" class="pulse-link">
       #Find0u<span class="glow-T">T</span><span class="glow-T">T</span>
     </a>
   </div>
