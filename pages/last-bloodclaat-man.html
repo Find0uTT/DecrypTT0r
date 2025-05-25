@@ -68,6 +68,23 @@
       color: red;
       text-shadow: 0 0 8px red;
     }
+
+    @keyframes pulse {
+      0%   { text-shadow: 0 0 6px red; }
+      50%  { text-shadow: 0 0 14px red; }
+      100% { text-shadow: 0 0 6px red; }
+    }
+
+    .pulse-link {
+      display: inline-block;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-shadow: 0 0 12px red;
+      animation: pulse 1.2s infinite;
+      color: red;
+      text-decoration: none;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -88,14 +105,14 @@
   <!-- Alternate Clip -->
   <a class="yt-link" href="https://youtu.be/y10YZoHFnm4?si=n4zg_dIy7fPlWaE2" target="_blank">Watch Alternate Clip ↗️</a>
 
-  <!-- Final Footer Message (Moved to Bottom) -->
+  <!-- Final Footer Message -->
   <div id="footerNote">
     This shirt is from <strong>#TSC – The Soundtrack Collection</strong><br><br>
     If you like the shirt, the <strong>#C0DE</strong> is your password.<br>
     Search it in the shop. It’s never closed... but it’s <br><br>
     <strong>I.Y.K.Y.K</strong><br>
     <strong>IF YOU DON’T</strong><br>
-    <span style="font-size: 1.2em; font-weight: bold; text-shadow: 0 0 12px red;">#Find0uTT</span>
+    <a href="https://find0utt.github.io" target="_blank" class="pulse-link">#Find0uTT</a>
   </div>
 
   <script>
