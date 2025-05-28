@@ -1,0 +1,117 @@
+<style>
+  body {
+    background-color: black;
+    color: #00bfff;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: auto;
+    border: 2px solid #00bfff;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.8);
+    box-shadow: 0 0 20px #00bfff;
+  }
+
+  #unlockMessage {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #00bfff;
+    font-weight: bold;
+  }
+
+  #heart {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  #decryptedMessage {
+    font-size: 1rem;
+    white-space: pre-wrap;
+    border-top: 1px solid #00bfff;
+    padding-top: 1rem;
+  }
+
+  .typewriter-text::after {
+    content: '|';
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
+
+<div class="container">
+  <div id="heart">💙</div>
+  <div id="unlockMessage">
+    AUNTIE — THIS ONE'S FOR YOU.<br>
+    THE BONUS MOM I NEVER ASKED FOR, BUT ALWAYS NEEDED.
+  </div>
+  <div id="decryptedMessage" class="typewriter-text"></div>
+</div>
+
+<script>
+  const message = `“THE BONUS MOM I DIDN’T KNOW I NEEDED”
+YOU STEPPED IN SOFT, NO NEED FOR PRAISE
+BUT LEFT YOUR MARK IN SUBTLE WAYS.
+A SECOND HEART, A SECOND HOME,
+WHERE I FELT SAFE, WHERE I HAD GROWN.
+
+YOU DIDN’T HAVE TO CARE LIKE THIS,
+OR TEACH ME THROUGH EACH HUG AND KISS
+BUT YOU DID. AND THAT’S THE THING:
+YOU GAVE ME LOVE WITHOUT A STRING.
+
+SO TODAY I HONOR WHAT YOU’VE DONE,
+NOT JUST AN AUNT—A CHOSEN ONE.
+MOTHER BY SPIRIT, FRIEND BY ROLE,
+AUNTIE YOU’VE GOT A HEART WORTH MORE THAN GOLD.
+
+---
+
+THIS HAS BEEN A ROUGH JOURNEY TRYING TO GET THIS WHOLE IDEA RIGHT.
+THE DAYS WHEN IT GETS OVERWHELMING, I THINK BACK TO 5TH GRADE—
+WHEN I LEARNED POWERPOINT.
+I CAME HOME AND PUT TOGETHER A BUNCH OF SLIDES AND A BUNCH OF FOOLISHNESS
+(IF I WERE TO LOOK BACK AT IT NOW).
+BUT YOU DIDN’T SEE IT LIKE THAT.
+YOU WATCHED THE WHOLE THING AND TOLD ME TO KEEP PRACTICING—
+THAT ONE DAY, I’D DO BIG THINGS ON THE COMPUTER.
+
+THAT’S A KEY MEMORY.
+AND I DON’T SAY THIS LIGHTLY WHEN I TELL YOU—
+THAT MEMORY KEEPS ME GOING ON THE DAYS I FEEL LIKE GIVING UP.
+
+THANKS FOR ALWAYS SUPPORTING ME
+AND HEARING ME OUT WHEN IT SEEMED LIKE NO ONE ELSE WANTED TO.
+I KNOW YOU WOULD LISTEN.
+
+I LOVE YOU MORE THAN YOU’LL EVER UNDERSTAND.
+BLESSED BEYOND BELIEF TO HAVE YOU IN MY LIFE.
+
+THANK YOU, AUNTIE.
+HAPPY MOTHER’S DAY 2025.`;
+
+  let index = 0;
+  const speed = 20; // typing speed
+  function typeWriter() {
+    if (index < message.length) {
+      document.getElementById("decryptedMessage").innerText += message.charAt(index);
+      index++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  typeWriter();
+</script>
