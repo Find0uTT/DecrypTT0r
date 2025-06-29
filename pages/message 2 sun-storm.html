@@ -1,70 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>☀️storm Find 0uTT</title>
+  <meta charset="UTF-8">
+  <title>☀️STORM FIND OUT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
-    body {
-      background: black;
-      color: #ff3333;
-      font-family: monospace;
+    html, body {
       margin: 0;
       padding: 0;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 10vh auto;
-      padding: 20px;
-      border: 2px solid #ff3333;
-      border-radius: 10px;
-      background: rgba(0, 0, 0, 0.85);
-    }
-
-    .intro {
+      background-color: black;
+      color: #ff0000;
+      font-family: 'Share Tech Mono', monospace;
+      width: 100%;
+      min-height: 100%;
+      overflow-y: auto;
       text-align: center;
-      font-size: 1.5em;
-      margin-bottom: 20px;
     }
 
-    .message {
-      white-space: pre-line;
-      animation: typewriter 4s steps(40) 1 normal both;
+    #unlockMessage {
+      display: none;
+      margin-top: 30px;
+      text-shadow: 0 0 8px #ff0000;
     }
 
-    @keyframes typewriter {
-      from { width: 0; }
-      to { width: 100%; }
+    #unlockMessage div {
+      margin-bottom: 10px;
+    }
+
+    #unlockMessage .gateway-title {
+      font-size: 28px;
+    }
+
+    #unlockMessage .gateway-line {
+      font-size: 20px;
+    }
+
+    #decryptedMessage {
+      display: none;
+      font-size: 18px;
+      text-shadow: 0 0 8px #ff0000;
+      max-width: 90%;
+      margin: 20px auto 0;
     }
 
     iframe {
+      margin-top: 30px;
       width: 100%;
+      max-width: 100%;
       height: 315px;
       border: none;
+      box-shadow: 0 0 10px red;
+    }
+
+    .yt-link {
+      display: block;
       margin-top: 20px;
+      font-size: 1em;
+      color: red;
+      text-decoration: underline;
+    }
+
+    #footerNote {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1em;
+      color: red;
+      text-shadow: 0 0 8px red;
+    }
+
+    .pulse-link {
+      display: inline-block;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: red;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    @keyframes powerTT {
+      0%, 100% {
+        transform: scale(1);
+        color: red;
+        text-shadow: 0 0 8px red;
+      }
+      33% {
+        transform: scale(1.1);
+        color: #ff1a1a;
+        text-shadow: 0 0 12px red, 0 0 24px red;
+      }
+      66% {
+        transform: scale(1.2);
+        color: #ff4d4d;
+        text-shadow: 0 0 16px red, 0 0 36px red;
+      }
+    }
+
+    .glow-T {
+      display: inline-block;
+      font-weight: bold;
+      animation: powerTT 1.5s ease-in-out infinite;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="intro">
-      ⛩️ G8WAY 0PENED ⛩️<br>
-      You’ve $TTepped TThrough.<br>
-      Here’s what’s 0n the 0TTher $ide:
-    </div>
 
-    <div class="message">
-☀️storm... you’ve come too far to let this be just a hobby.
-Your art is powerful  a ☀️ ready to burn brighter.
-Every brush stroke, every design, every idea  it’s time to focus, lock in, and let it shine.
-I can’t take this clothing line to the next level without you.
-I need your vision. I need your grind.I need your talenTT
-Let’s build this together.
-Keep going. Keep creating. AND STAY FOCUSED
-IF YOU KNOW YOU KNOW IF YOU DONT #Find0uTT.
-    </div>
-
-    <iframe src="https://www.youtube.com/embed/f3jdbFOidds" title="Motivation"></iframe>
+  <!-- Gateway Message -->
+  <div id="unlockMessage">
+    <div class="gateway-title">⛩️ G8WAY 0PENED ⛩️</div>
+    <div class="gateway-line">You’ve $TTepped TThrough.</div>
+    <div class="gateway-line">Here’s what’s 0n the 0TTher $ide.</div>
   </div>
+
+  <!-- Typing Message -->
+  <div id="decryptedMessage"></div>
+
+  <!-- Video Embed -->
+  <iframe src="https://www.youtube.com/watch?v=K5ZWOXBBU3s&list=PLOPgGyfHrmrtHGKC-T4_bWUk4axraV6RF" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/watch?v=yW7Z4unP_Ek&list=PLOPgGyfHrmrtHGKC-T4_bWUk4axraV6RF&index=5" allowfullscreen></iframe>
+
+ 
+
+  <!-- Final Footer Message -->
+  <div id="footerNote">
+    This shirt is from <strong>#TSC – The Soundtrack Collection</strong><br><br>
+    If you like the shirt, the <strong>#C0DE</strong> is your password.<br>
+    Search it in the shop. It’s never closed... but it’s <br><br>
+    <strong>I.Y.K.Y.K</strong><br>
+    <strong>IF YOU DON’T</strong><br>
+    <a href="https://10se8q-se.myshopify.com/" target="_blank" class="pulse-link">
+      #Find0u<span class="glow-T">T</span><span class="glow-T">T</span>
+    </a>
+  </div>
+
+  <script>
+    const linesToReveal = [
+      { text: `☀️storm... you’ve come too far to let this be just a hobby.` },
+      { text: `Your art is powerful — a ☀️ ready to burn brighter.` },
+      { text: `Every brush stroke, every design, every idea it’s time to focus, lock in, and let it shine.` },
+      { text: `I can’t take this clothing line to the next level without you.` },
+      { text: `I need your vision. I need your grind.AND STAY FOCUSED` },
+      { text: `Let’s build this together.` },
+      { text: `Keep going. Keep creating.` },
+      { text: `If you know, you know.` },
+      { text: `If you don’t… #Find0uTT.` }
+    ];
+
+    function showUnlockMessageThenType(lines) {
+      const unlockDiv = document.getElementById('unlockMessage');
+      const container = document.getElementById('decryptedMessage');
+
+      unlockDiv.style.display = 'block';
+
+      setTimeout(() => {
+        container.style.display = 'block';
+        typeLines(lines, container);
+      }, 2500);
+    }
+
+    function typeLines(lines, container, delay = 30) {
+      let i = 0;
+
+      function typeNextLine() {
+        if (i >= lines.length) return;
+
+        const wrapper = document.createElement('div');
+        container.appendChild(wrapper);
+        typeTextInto(wrapper, lines[i].text, () => {
+          i++;
+          setTimeout(typeNextLine, delay * 3);
+        }, delay);
+      }
+
+      function typeTextInto(elem, text, done, speed) {
+        let j = 0;
+        function typeChar() {
+          if (j < text.length) {
+            elem.innerHTML += text[j++];
+            setTimeout(typeChar, speed);
+          } else {
+            done();
+          }
+        }
+        typeChar();
+      }
+
+      typeNextLine();
+    }
+
+    window.onload = () => {
+      showUnlockMessageThenType(linesToReveal);
+    };
+  </script>
+
 </body>
 </html>
