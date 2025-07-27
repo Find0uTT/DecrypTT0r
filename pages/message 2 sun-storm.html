@@ -1,4 +1,153 @@
-<!DOCTYPE html>
+Skip to content
+Chat history
+
+You said:
+i want to finnish working on my cousins page 
+ChatGPT said:
+Got you — let’s finish your cousin’s page. Just to make sure we’re picking up right where you left off:
+
+Are you talking about the personal Sunstorm page you mentioned before (with the old drawings and private Google Photos album)?
+
+Or is this a different cousin’s page with a new theme or idea?
+
+Let me know:
+
+What content you want to include (text, images, video, links)?
+
+How you want it to look (colors, background, style)?
+
+And where this page will live (GitHub site, Shopify page, Find Out page, etc.)?
+
+Once I have that, I’ll generate the next steps or code to help you build it.
+
+You said:
+sunstorms 
+ChatGPT said:
+Perfect — let’s finish Sunstorm’s page.
+
+Here’s what I remember you said:
+
+This is a personal/private page, not part of the public shop.
+
+You want to include old drawings you and Sunstorm made as kids.
+
+You thought about linking to a Google Photos album but weren’t sure if that would work the way you wanted.
+
+You’re using the same dark theme (black background, red neon text) from the other Find Out pages.
+
+The glowing “TT” could be the gateway to access the album or trigger a reveal.
+
+Let’s lock in a direction. You’ve got a few solid options for how to display the drawings:
+
+✅ OPTION 1: Images Embedded On the Page
+Upload the drawings (JPG/PNG) directly into your site’s repo and embed them like this:
+
+<div class="gallery">
+  <img src="/images/sunstorm1.jpg" alt="Sunstorm Drawing 1">
+  <img src="/images/sunstorm2.jpg" alt="Sunstorm Drawing 2">
+  <!-- Add more -->
+</div>
+You’ll need to upload each drawing to your GitHub repo (or Shopify assets, if that’s where it lives).
+
+✅ OPTION 2: Link to a Google Photos Album (if you want to keep it private)
+You can make a Google Photos album “Anyone with link can view” and link to it like this:
+
+<a href="https://photos.app.goo.gl/YOUR_ALBUM_LINK" target="_blank" class="neon-link">
+  🌩️ View the Sunstorm Files
+</a>
+This keeps it simple and off your main site, but feels a bit less integrated.
+
+✅ OPTION 3: Hybrid — TT Glow Click → Hidden Album Reveal
+Add a glowing TT symbol on the page. When someone taps it, it either:
+
+reveals the images,
+
+or redirects to the Google Photos album.
+
+Example:
+
+<div id="glowingTT" onclick="revealAlbum()">
+  <span class="tt-glow">TT</span>
+</div>
+
+<div id="sunstormGallery" style="display: none;">
+  <p>🌩️ Sunstorm Files:</p>
+  <a href="https://photos.app.goo.gl/YOUR_ALBUM_LINK" target="_blank" class="neon-link">
+    Tap to View the Originals
+  </a>
+</div>
+
+<script>
+  function revealAlbum() {
+    document.getElementById('sunstormGallery').style.display = 'block';
+  }
+</script>
+Next Step — What Do You Want To Use?
+Do you want to embed the drawings right on the page or just link to them?
+
+Are the images already uploaded somewhere or do you need help getting them hosted?
+
+Once you tell me how you want to do it (and if you have the image files or album link ready), I’ll build out the full HTML for you.
+
+You said:
+The google photo album sounds good because I already have the photos there 
+ChatGPT said:
+Perfect — let’s roll with the Google Photos album setup.
+
+Here’s a polished section you can drop into your Sunstorm page (or any Find Out-style page). It includes a glowing TT that reveals the private album link when clicked, keeping the mystery alive:
+
+✅ HTML + CSS (Glowing TT + Hidden Album Reveal)
+<!-- Glowing TT Trigger -->
+<div id="glowingTT" onclick="revealAlbum()" style="cursor: pointer; text-align: center; margin-top: 60px;">
+  <span style="font-size: 60px; color: #ff0000; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; animation: flicker 2s infinite;">
+    TT
+  </span>
+  <p style="color: #ff0000; font-family: 'Share Tech Mono', monospace; font-size: 14px;">Tap to Unlock the Vault</p>
+</div>
+
+<!-- Hidden Link Container -->
+<div id="sunstormGallery" style="display: none; text-align: center; margin-top: 30px;">
+  <p style="color: #ff0000; font-size: 18px; font-family: 'Share Tech Mono', monospace;">
+    🌩️ SUNSTORM FILES UNSEALED 🌩️
+  </p>
+  <a href="https://photos.app.goo.gl/YOUR_ALBUM_LINK" target="_blank"
+     style="color: #ff0000; text-decoration: underline; font-size: 16px; font-family: 'Share Tech Mono', monospace;">
+    View the Original Drawings
+  </a>
+</div>
+
+<!-- Flicker Animation -->
+<style>
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0;
+  }
+}
+</style>
+
+<!-- Reveal Script -->
+<script>
+  function revealAlbum() {
+    document.getElementById('sunstormGallery').style.display = 'block';
+  }
+</script>
+🔧 What You Need to Do:
+Replace the placeholder:
+
+https://photos.app.goo.gl/YOUR_ALBUM_LINK
+with your actual Google Photos album link.
+
+Drop this full block into your existing Sunstorm page file (HTML/Shopify/GitHub, wherever you’re building it).
+
+You’re done. Super clean. Super Sunstorm.
+
+Want me to help you style the background or add any text like a quote or childhood memory? Or do you want to add a Find Out message above this like the others?
+
+You said:
+heres the code thats already there...<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -136,15 +285,15 @@
 
   <script>
     const linesToReveal = [
-      { text: `☀️storm... you’ve come too far to let this be just a hobby.` },
-      { text: `Your art is powerful — a ☀️ ready to burn brighter.` },
-      { text: `Every brush stroke, every design, every idea it’s time to focus, lock in, and let it shine.` },
-      { text: `I can’t take this clothing line to the next level without you.` },
-      { text: `I need your vision. I need your grind.AND STAY FOCUSED` },
-      { text: `Let’s build this together.` },
-      { text: `Keep going. Keep creating.` },
-      { text: `If you know, you know.` },
-      { text: `If you don’t… #Find0uTT.` }
+      { text: ☀️storm... you’ve come too far to let this be just a hobby. },
+      { text: Your art is powerful — a ☀️ ready to burn brighter. },
+      { text: Every brush stroke, every design, every idea it’s time to focus, lock in, and let it shine. },
+      { text: I can’t take this clothing line to the next level without you. },
+      { text: I need your vision. I need your grind.AND STAY FOCUSED },
+      { text: Let’s build this together. },
+      { text: Keep going. Keep creating. },
+      { text: If you know, you know. },
+      { text: If you don’t… #Find0uTT. }
     ];
 
     function showUnlockMessageThenType(lines) {
@@ -196,3 +345,308 @@
 
 </body>
 </html>
+ChatGPT said:
+Thanks — your Sunstorm page is already clean and on-brand. Now let’s add the Google Photos album reveal just below the messages and videos, using the same glowing red aesthetic and keeping everything in one flow.
+
+🔻📂 Drop This Right Above the Final Footer
+Paste this just before this line in your code:
+
+<!-- Final Footer Message -->
+✅ Google Photos Album Reveal Block (with Glowing TT Tap)
+<!-- Glowing TT Reveal for Sunstorm Files -->
+<div id="glowingTT" onclick="revealAlbum()" style="cursor: pointer; text-align: center; margin-top: 60px;">
+  <span style="font-size: 60px; color: #ff0000; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; animation: flicker 2s infinite;">
+    TT
+  </span>
+  <p style="color: #ff0000; font-family: 'Share Tech Mono', monospace; font-size: 14px;">Tap to Unlock the Vault</p>
+</div>
+
+<!-- Hidden Album Link -->
+<div id="sunstormGallery" style="display: none; text-align: center; margin-top: 30px;">
+  <p style="color: #ff0000; font-size: 18px; font-family: 'Share Tech Mono', monospace;">
+    🌩️ SUNSTORM FILES UNSEALED 🌩️
+  </p>
+  <a href="https://photos.app.goo.gl/YOUR_ALBUM_LINK" target="_blank"
+     style="color: #ff0000; text-decoration: underline; font-size: 16px; font-family: 'Share Tech Mono', monospace;">
+    View the Original Drawings
+  </a>
+</div>
+✅ Add This CSS Inside <style> (Already in your <head>)
+Just add this at the bottom of your existing <style> section:
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0;
+  }
+}
+✅ Add This Script Inside <script> (Just Below window.onload)
+This can go anywhere after your window.onload = () => { ... } block:
+
+function revealAlbum() {
+  document.getElementById('sunstormGallery').style.display = 'block';
+}
+✅ Last Step
+Replace this part:
+
+https://photos.app.goo.gl/YOUR_ALBUM_LINK
+with your actual Google Photos album link.
+
+Once you do that, the glowing TT will reveal the vault link — clean, on theme, and still keeps that mystery.
+
+Want a version where clicking the TT fades it out and only leaves the album behind? Or should we add a password to unlock it just for Sunstorm?
+
+You said:
+could you rewrite the code for me updated 
+ChatGPT said:
+Absolutely — here is your fully updated and cleaned-up Sunstorm page, including everything you already had plus the new glowing TT vault reveal that links to your Google Photos album.
+
+🔁 Just replace the placeholder link https://photos.app.goo.gl/YOUR_ALBUM_LINK with your real one, and you’re good to go.
+
+✅ Full Updated Code for Sunstorm’s Page:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>☀️STORM FIND OUT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: #ff0000;
+      font-family: 'Share Tech Mono', monospace;
+      width: 100%;
+      min-height: 100%;
+      overflow-y: auto;
+      text-align: center;
+    }
+
+    #unlockMessage {
+      display: none;
+      margin-top: 30px;
+      text-shadow: 0 0 8px #ff0000;
+    }
+
+    #unlockMessage div {
+      margin-bottom: 10px;
+    }
+
+    #unlockMessage .gateway-title {
+      font-size: 28px;
+    }
+
+    #unlockMessage .gateway-line {
+      font-size: 20px;
+    }
+
+    #decryptedMessage {
+      display: none;
+      font-size: 18px;
+      text-shadow: 0 0 8px #ff0000;
+      max-width: 90%;
+      margin: 20px auto 0;
+    }
+
+    iframe {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 100%;
+      height: 315px;
+      border: none;
+      box-shadow: 0 0 10px red;
+    }
+
+    .yt-link {
+      display: block;
+      margin-top: 20px;
+      font-size: 1em;
+      color: red;
+      text-decoration: underline;
+    }
+
+    #footerNote {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1em;
+      color: red;
+      text-shadow: 0 0 8px red;
+    }
+
+    .pulse-link {
+      display: inline-block;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: red;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    @keyframes powerTT {
+      0%, 100% {
+        transform: scale(1);
+        color: red;
+        text-shadow: 0 0 8px red;
+      }
+      33% {
+        transform: scale(1.1);
+        color: #ff1a1a;
+        text-shadow: 0 0 12px red, 0 0 24px red;
+      }
+      66% {
+        transform: scale(1.2);
+        color: #ff4d4d;
+        text-shadow: 0 0 16px red, 0 0 36px red;
+      }
+    }
+
+    .glow-T {
+      display: inline-block;
+      font-weight: bold;
+      animation: powerTT 1.5s ease-in-out infinite;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Gateway Message -->
+  <div id="unlockMessage">
+    <div class="gateway-title">⛩️ G8WAY 0PENED ⛩️</div>
+    <div class="gateway-line">You’ve $TTepped TThrough.</div>
+    <div class="gateway-line">Here’s what’s 0n the 0TTher $ide.</div>
+  </div>
+
+  <!-- Typing Message -->
+  <div id="decryptedMessage"></div>
+
+  <!-- Video Embed -->
+  <iframe src="https://www.youtube.com/embed/K5ZWOXBBU3s" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/yW7Z4unP_Ek" allowfullscreen></iframe>
+
+  <!-- Glowing TT Reveal for Sunstorm Files -->
+  <div id="glowingTT" onclick="revealAlbum()" style="cursor: pointer; text-align: center; margin-top: 60px;">
+    <span style="font-size: 60px; color: #ff0000; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; animation: flicker 2s infinite;">
+      TT
+    </span>
+    <p style="color: #ff0000; font-family: 'Share Tech Mono', monospace; font-size: 14px;">Tap to Unlock the Vault</p>
+  </div>
+
+  <!-- Hidden Album Link -->
+  <div id="sunstormGallery" style="display: none; text-align: center; margin-top: 30px;">
+    <p style="color: #ff0000; font-size: 18px; font-family: 'Share Tech Mono', monospace;">
+      🌩️ SUNSTORM FILES UNSEALED 🌩️
+    </p>
+    <a href="https://photos.app.goo.gl/YOUR_ALBUM_LINK" target="_blank"
+       style="color: #ff0000; text-decoration: underline; font-size: 16px; font-family: 'Share Tech Mono', monospace;">
+      View the Original Drawings
+    </a>
+  </div>
+
+  <!-- Final Footer Message -->
+  <div id="footerNote">
+    This shirt is from <strong>#TSC – The Soundtrack Collection</strong><br><br>
+    If you like the shirt, the <strong>#C0DE</strong> is your password.<br>
+    Search it in the shop. It’s never closed... but it’s <br><br>
+    <strong>I.Y.K.Y.K</strong><br>
+    <strong>IF YOU DON’T</strong><br>
+    <a href="https://10se8q-se.myshopify.com/" target="_blank" class="pulse-link">
+      #Find0u<span class="glow-T">T</span><span class="glow-T">T</span>
+    </a>
+  </div>
+
+  <script>
+    const linesToReveal = [
+      { text: `☀️storm... you’ve come too far to let this be just a hobby.` },
+      { text: `Your art is powerful — a ☀️ ready to burn brighter.` },
+      { text: `Every brush stroke, every design, every idea it’s time to focus, lock in, and let it shine.` },
+      { text: `I can’t take this clothing line to the next level without you.` },
+      { text: `I need your vision. I need your grind. AND STAY FOCUSED` },
+      { text: `Let’s build this together.` },
+      { text: `Keep going. Keep creating.` },
+      { text: `If you know, you know.` },
+      { text: `If you don’t… #Find0uTT.` }
+    ];
+
+    function showUnlockMessageThenType(lines) {
+      const unlockDiv = document.getElementById('unlockMessage');
+      const container = document.getElementById('decryptedMessage');
+
+      unlockDiv.style.display = 'block';
+
+      setTimeout(() => {
+        container.style.display = 'block';
+        typeLines(lines, container);
+      }, 2500);
+    }
+
+    function typeLines(lines, container, delay = 30) {
+      let i = 0;
+
+      function typeNextLine() {
+        if (i >= lines.length) return;
+
+        const wrapper = document.createElement('div');
+        container.appendChild(wrapper);
+        typeTextInto(wrapper, lines[i].text, () => {
+          i++;
+          setTimeout(typeNextLine, delay * 3);
+        }, delay);
+      }
+
+      function typeTextInto(elem, text, done, speed) {
+        let j = 0;
+        function typeChar() {
+          if (j < text.length) {
+            elem.innerHTML += text[j++];
+            setTimeout(typeChar, speed);
+          } else {
+            done();
+          }
+        }
+        typeChar();
+      }
+
+      typeNextLine();
+    }
+
+    function revealAlbum() {
+      document.getElementById('sunstormGallery').style.display = 'block';
+    }
+
+    window.onload = () => {
+      showUnlockMessageThenType(linesToReveal);
+    };
+  </script>
+
+</body>
+</html>
+Let me know if you want:
+
+A fade-in animation when the album appears
+
+To hide the TT after it’s clicked
+
+A password gate for extra privacy
+
+Or the album link styled like a 🔓 folder file download instead of a plain link
+
+All easy to add.
+
+
+
+
+No file chosenNo file chosen
+ChatGPT can make mistakes. Check important info.
