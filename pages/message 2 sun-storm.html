@@ -53,6 +53,14 @@
       box-shadow: 0 0 10px red;
     }
 
+    .yt-link {
+      display: block;
+      margin-top: 20px;
+      font-size: 1em;
+      color: red;
+      text-decoration: underline;
+    }
+
     #footerNote {
       text-align: center;
       margin-top: 40px;
@@ -119,3 +127,101 @@
   <!-- Video Embed -->
   <iframe src="https://www.youtube.com/embed/K5ZWOXBBU3s" allowfullscreen></iframe>
   <iframe src="https://www.youtube.com/embed/yW7Z4unP_Ek" allowfullscreen></iframe>
+
+  <!-- Glowing TT Reveal for Sunstorm Files -->
+  <div id="glowingTT" onclick="revealAlbum()" style="cursor: pointer; text-align: center; margin-top: 60px;">
+    <span style="font-size: 60px; color: #ff0000; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; animation: flicker 2s infinite;">
+      TT
+    </span>
+    <p style="color: #ff0000; font-family: 'Share Tech Mono', monospace; font-size: 14px;">Tap to Unlock the Vault</p>
+  </div>
+
+  <!-- Hidden Album Link -->
+  <div id="sunstormGallery" style="display: none; text-align: center; margin-top: 30px;">
+    <p style="color: #ff0000; font-size: 18px; font-family: 'Share Tech Mono', monospace;">
+      🌩️ SUNSTORM FILES UNSEALED 🌩️
+    </p>
+    <a href="https://photos.app.goo.gl/YOUR_ALBUM_LINK" target="_blank"
+       style="color: #ff0000; text-decoration: underline; font-size: 16px; font-family: 'Share Tech Mono', monospace;">
+      View the Original Drawings
+    </a>
+  </div>
+
+  <!-- Final Footer Message -->
+  <div id="footerNote">
+    This shirt is from <strong>#TSC – The Soundtrack Collection</strong><br><br>
+    If you like the shirt, the <strong>#C0DE</strong> is your password.<br>
+    Search it in the shop. It’s never closed... but it’s <br><br>
+    <strong>I.Y.K.Y.K</strong><br>
+    <strong>IF YOU DON’T</strong><br>
+    <a href="https://10se8q-se.myshopify.com/" target="_blank" class="pulse-link">
+      #Find0u<span class="glow-T">T</span><span class="glow-T">T</span>
+    </a>
+  </div>
+
+  <script>
+    const linesToReveal = [
+      { text: `☀️storm... you’ve come too far to let this be just a hobby.` },
+      { text: `Your art is powerful — a ☀️ ready to burn brighter.` },
+      { text: `Every brush stroke, every design, every idea it’s time to focus, lock in, and let it shine.` },
+      { text: `I can’t take this clothing line to the next level without you.` },
+      { text: `I need your vision. I need your grind. AND STAY FOCUSED` },
+      { text: `Let’s build this together.` },
+      { text: `Keep going. Keep creating.` },
+      { text: `If you know, you know.` },
+      { text: `If you don’t… #Find0uTT.` }
+    ];
+
+    function showUnlockMessageThenType(lines) {
+      const unlockDiv = document.getElementById('unlockMessage');
+      const container = document.getElementById('decryptedMessage');
+
+      unlockDiv.style.display = 'block';
+
+      setTimeout(() => {
+        container.style.display = 'block';
+        typeLines(lines, container);
+      }, 2500);
+    }
+
+    function typeLines(lines, container, delay = 30) {
+      let i = 0;
+
+      function typeNextLine() {
+        if (i >= lines.length) return;
+
+        const wrapper = document.createElement('div');
+        container.appendChild(wrapper);
+        typeTextInto(wrapper, lines[i].text, () => {
+          i++;
+          setTimeout(typeNextLine, delay * 3);
+        }, delay);
+      }
+
+      function typeTextInto(elem, text, done, speed) {
+        let j = 0;
+        function typeChar() {
+          if (j < text.length) {
+            elem.innerHTML += text[j++];
+            setTimeout(typeChar, speed);
+          } else {
+            done();
+          }
+        }
+        typeChar();
+      }
+
+      typeNextLine();
+    }
+
+    function revealAlbum() {
+      document.getElementById('sunstormGallery').style.display = 'block';
+    }
+
+    window.onload = () => {
+      showUnlockMessageThenType(linesToReveal);
+    };
+  </script>
+
+</body>
+</html>
